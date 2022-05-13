@@ -1,1 +1,0 @@
-window.__NUXT__=(function(a){return {staticAssetsBase:"\u002Fbravado-quest\u002F_nuxt\u002Fstatic\u002F1652409644",layout:"default",error:a,serverRendered:true,routePath:"\u002F",config:{_app:{basePath:"\u002Fbravado-quest\u002F",assetsPath:"\u002Fbravado-quest\u002F_nuxt\u002F",cdnURL:a}}}}(null));
