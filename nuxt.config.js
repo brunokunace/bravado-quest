@@ -2,7 +2,6 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/bravado-quest/' : '/',
     extendRoutes (routes, resolve) {
       routes.push({
         path: '*',

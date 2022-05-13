@@ -23,9 +23,16 @@
 </template>
 
 <script>
-import users from '~/static/users.json'
 export default {
   name: 'IndexPage',
+  async asyncData ({ $axios }) {
+    const usersUrl = 'https://gist.githubusercontent.com/allaud/093aa499998b7843bb10b44ea6ea02dc/raw/c400744999bf4b308f67807729a6635ced0c8644/users.json'
+    const users = await $axios.$get(usersUrl)
+    users.map((user) => {
+      return { ...user, selected: false, address: `${user.address}, ${user.city}` }
+    })
+    return { users }
+  },
   data: () => ({
     filter: '',
     users: []
@@ -38,11 +45,6 @@ export default {
         return fields.some(field => user[field].toLowerCase().includes(filter))
       })
     }
-  },
-  mounted () {
-    this.users = users.map((user) => {
-      return { ...user, selected: false, address: `${user.address}, ${user.city}` }
-    })
   },
   methods: {
     selectUser (payload) {
