@@ -2,7 +2,13 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
   router: {
-    base: process.env.NODE_ENV === 'production' ? '/bravado-quest/' : '/'
+    base: process.env.NODE_ENV === 'production' ? '/bravado-quest/' : '/',
+    extendRoutes (routes, resolve) {
+      routes.push({
+        path: '*',
+        component: resolve(__dirname, 'pages/index.vue')
+      })
+    }
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head

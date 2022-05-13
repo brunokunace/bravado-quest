@@ -4,6 +4,8 @@
 * Use virtual scroller for get the most performatic list and filter
 * For highlight text, need to use v-html, but can lead to XSS attack
 * I change the font-size to try adapt this design to mobile, but is not in figma
+* I created a github action deploy, but not deployed because this a private repository
+* You can filter users directly in url using `/text-to-filter`
 
 ### Difficults found
 * Highlight a text with case-insensitive, because need to change text to insert a `<mark>`, replaceAll not is best for it, need to create a regex like function, but i dont know if it is worth for this test 

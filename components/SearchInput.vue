@@ -5,7 +5,7 @@
         <fa :icon="prependIcon" :color="prependIconColor" class="search-input_prepend-icon" />
       </div>
     </slot>
-    <input type="text" class="search-input_input" @input="inputHandler">
+    <input type="text" class="search-input_input" :value="value" @input="inputHandler($event.target.value)">
     <slot name="postpend" />
   </div>
 </template>
@@ -23,9 +23,16 @@ export default {
       default: '#737373'
     }
   },
+  data: () => ({
+    value: ''
+  }),
+  mounted () {
+    this.value = this.$route.path.substring(1)
+    this.inputHandler(this.value)
+  },
   methods: {
-    inputHandler ($event) {
-      this.$emit('input', $event.target.value)
+    inputHandler (value) {
+      this.$emit('input', value)
     }
   }
 }
